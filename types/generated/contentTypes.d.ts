@@ -824,6 +824,7 @@ export interface ApiCategorieCategorie extends Schema.CollectionType {
     singularName: 'categorie';
     pluralName: 'categories';
     displayName: 'categories';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -832,7 +833,7 @@ export interface ApiCategorieCategorie extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     posts: Attribute.Relation<
       'api::categorie.categorie',
-      'oneToMany',
+      'manyToMany',
       'api::post.post'
     >;
     createdAt: Attribute.DateTime;
@@ -874,9 +875,9 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToOne',
       'api::author.author'
     >;
-    category: Attribute.Relation<
+    categories: Attribute.Relation<
       'api::post.post',
-      'manyToOne',
+      'manyToMany',
       'api::categorie.categorie'
     >;
     createdAt: Attribute.DateTime;
