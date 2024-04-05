@@ -21,6 +21,19 @@
       "relation": "manyToMany",
       "target": "api::post.post",
       "inversedBy": "categories"
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "primary",
+        "secondary",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "default": "default",
+      "required": true
     }
   }
 }

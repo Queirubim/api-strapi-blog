@@ -836,6 +836,11 @@ export interface ApiCategorieCategorie extends Schema.CollectionType {
       'manyToMany',
       'api::post.post'
     >;
+    color: Attribute.Enumeration<
+      ['default', 'primary', 'secondary', 'success', 'warning', 'danger']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'default'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -880,6 +885,7 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToMany',
       'api::categorie.categorie'
     >;
+    shortDescription: Attribute.Text & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
